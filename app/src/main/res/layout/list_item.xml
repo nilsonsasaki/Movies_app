@@ -11,21 +11,55 @@
         android:layout_width="@dimen/list_cover_width"
         android:layout_height="@dimen/list_cover_height"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/title_cover_description"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_between_elements"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        android:textSize="@dimen/list_title_text"
+        app:layout_constraintBottom_toTopOf="@id/tv_release_year"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_cover"
         app:layout_constraintTop_toTopOf="@id/iv_cover"
         app:textFontWeight="700"
         tools:text="Spirited Away" />
+
+    <TextView
+        android:id="@+id/tv_release_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:textSize="@dimen/list_details_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        app:layout_constraintStart_toEndOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="2001" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:textSize="@dimen/list_details_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_release_year"
+        app:layout_constraintStart_toEndOf="@id/tv_release_year"
+        app:layout_constraintTop_toTopOf="@id/tv_release_year"
+        tools:text="8.5/10" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_rate_star"
+        app:layout_constraintBottom_toBottomOf="@id/tv_rating"
+        app:layout_constraintStart_toEndOf="@id/tv_rating"
+        app:layout_constraintTop_toTopOf="@id/tv_rating"
+        app:tint="@color/star_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
