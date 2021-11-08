@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TitleDetailFragment">
+    tools:context=".ui.MovieDetailFragment">
 
     <ImageView
-        android:id="@+id/iv_cover"
+        android:id="@+id/iv_backdrop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -19,7 +19,7 @@
         android:contentDescription="@string/backdrop_content_description" />
 
     <TextView
-        android:id="@+id/iv_title"
+        android:id="@+id/tv_details_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/detail_title_padding"
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toTopOf="@id/tv_release_year"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_backdrop"
         tools:text="Spirited Away" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:textSize="@dimen/detail_text_size"
         app:layout_constraintEnd_toStartOf="@id/tv_runtime"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_details_title"
         tools:text="2001" />
 
     <TextView

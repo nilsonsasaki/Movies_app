@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/titleListFragment">
+    app:startDestination="@id/moviesListFragment">
 
     <fragment
-        android:id="@+id/titleListFragment"
-        android:name="com.nilsonsasaki.moviesapp.ui.TitleListFragment"
-        android:label="fragment_title_list"
-        tools:layout="@layout/fragment_title_list" >
+        android:id="@+id/moviesListFragment"
+        android:name="com.nilsonsasaki.moviesapp.ui.MovieListFragment"
+        android:label="fragment_movies_list"
+        tools:layout="@layout/fragment_movies_list">
         <action
-            android:id="@+id/action_titleListFragment_to_titleDetailFragment"
-            app:destination="@id/titleDetailFragment" />
+            android:id="@+id/action_moviesListFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/titleDetailFragment"
-        android:name="com.nilsonsasaki.moviesapp.ui.TitleDetailFragment"
-        android:label="fragment_title_detail"
-        tools:layout="@layout/fragment_title_detail" >
+        android:id="@+id/movieDetailFragment"
+        android:name="com.nilsonsasaki.moviesapp.ui.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail">
         <action
-            android:id="@+id/action_titleDetailFragment_to_titleListFragment"
-            app:destination="@id/titleListFragment" />
+            android:id="@+id/action_movieDetailFragment_to_moviesListFragment"
+            app:destination="@id/moviesListFragment" />
     </fragment>
 </navigation>
