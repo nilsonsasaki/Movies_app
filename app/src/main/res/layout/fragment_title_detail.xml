@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.TitleDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/iv_cover"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic"
+        android:contentDescription="@string/backdrop_content_description" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/iv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/detail_title_padding"
+        android:textSize="@dimen/detail_title_text_size"
+        app:textFontWeight="Bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_release_year"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover"
+        tools:text="Spirited Away" />
+
+    <TextView
+        android:id="@+id/tv_release_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/detail_text_size"
+        app:layout_constraintEnd_toStartOf="@id/tv_runtime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_title"
+        tools:text="2001" />
+
+    <TextView
+        android:id="@+id/tv_runtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/detail_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_release_year"
+        app:layout_constraintEnd_toStartOf="@id/tv_rating"
+        app:layout_constraintStart_toEndOf="@id/tv_release_year"
+        app:layout_constraintTop_toTopOf="@id/tv_release_year"
+        tools:text="125min" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/detail_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_release_year"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_runtime"
+        app:layout_constraintTop_toTopOf="@id/tv_release_year"
+        tools:text="8.5/10" />
+
+    <ImageView
+        android:id="@+id/iv_rating_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_rate_star"
+        app:layout_constraintBottom_toBottomOf="@id/tv_rating"
+        app:layout_constraintStart_toEndOf="@id/tv_rating"
+        app:layout_constraintTop_toTopOf="@id/tv_rating"
+        app:tint="@color/star_color"
+        android:importantForAccessibility="no"/>
+
+    <TextView
+        android:id="@+id/tv_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/detail_text_padding"
+        android:textSize="@dimen/detail_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_rating"
+        tools:text="A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family." />
+
+    <TextView
+        android:id="@+id/tv_genres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/detail_text_padding"
+        android:textSize="@dimen/detail_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_overview"
+        tools:text="Genres: Animation, Family, Fantasy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
