@@ -52,4 +52,12 @@ dependencies {
     //Adding navigation component
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Adding third party library Retrofit with Moshi Converter
+    // Retrofit with Moshi Converter
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    // Moshi
+    implementation 'com.squareup.moshi:moshi-kotlin:1.12.0'
+    // fix error caused by moshi using outdated kotlin-reflect
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.31"
 }
