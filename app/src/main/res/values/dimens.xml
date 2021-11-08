@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="side_margin">16dp</dimen>
+    <dimen name="margin_between_elements">8dp</dimen>
+
+    <!--Title List Fragment-->
     <dimen name="list_cover_width">50dp</dimen>
     <dimen name="list_cover_height">75dp</dimen>
-    <dimen name="margin_between_elements">8dp</dimen>
+    <dimen name="list_title_text">24sp</dimen>
+    <dimen name="list_details_text_size">16sp</dimen>
+
+    <!--Title Details fragment -->
+    <dimen name="detail_title_padding">16dp</dimen>
+    <dimen name="detail_title_text_size">24sp</dimen>
+    <dimen name="detail_text_size">16sp</dimen>
+    <dimen name="detail_text_padding">16dp</dimen>
 </resources>
