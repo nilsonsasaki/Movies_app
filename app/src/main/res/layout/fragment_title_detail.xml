@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/detail_title_padding"
         android:textSize="@dimen/detail_title_text_size"
-        app:textFontWeight="Bold"
+        app:fontWeight="700"
         app:layout_constraintBottom_toTopOf="@id/tv_release_year"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_cover"
         app:layout_constraintTop_toTopOf="@id/iv_cover"
-        app:textFontWeight="700"
+        app:fontWeight="700"
         tools:text="Spirited Away" />
 
     <TextView
