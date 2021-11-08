@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MoviesApp</string>
+    <string name="backdrop_content_description">Movie picture</string>
+    <string name="title_cover_description">Title Cover</string>
 </resources>
