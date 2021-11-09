@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -55,9 +56,12 @@ dependencies {
 
     //Adding third party library Retrofit with Moshi Converter
     // Retrofit with Moshi Converter
+    //Rest client for Android
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
-    // Moshi
+    // Moshi to parse Json to Kotlin
     implementation 'com.squareup.moshi:moshi-kotlin:1.12.0'
     // fix error caused by moshi using outdated kotlin-reflect
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.31"
+    //coil to load images
+    implementation("io.coil-kt:coil:1.4.0")
 }
