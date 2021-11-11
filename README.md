@@ -29,3 +29,7 @@ Se não for possível baixar a lista de Títulos, o fragmento tenta três vezes,
 O MovieDetailsFragment faz o download dos detalhes do título escolhido e mostra ao usuário. 
 Assim como no MoviesListFragment, quando na primeira tentativa não é possível fazer o donload dos detalhes é feito mais três tentativas, 
 após isso o usuário é redirecionado para a tela de erro
+
+### ErrorFragment
+
+Esse é o fragmento em que são direcionados os usuários quando se não consegue carregar os dados, nele pode-se usar um botão tentar reconectar, sendo redirecionado para a MoviesListFragment
