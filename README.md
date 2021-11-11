@@ -14,9 +14,9 @@ O Movies App foi implementado em kotlin, com a arquitetura MVVM, utilizando as s
 
 O Movies App possui uma Activity, e três fragmentos que compartilham a mesma ViewModel, elas são:
 
-1- MoviesListFragment
-2- MovieDetailFragment
-3- ErrorFragment
+1. MoviesListFragment
+2. MovieDetailFragment
+3. ErrorFragment
 
 ### MoviesListFragment
 
