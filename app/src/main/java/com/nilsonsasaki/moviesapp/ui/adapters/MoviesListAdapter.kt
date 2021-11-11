@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.nilsonsasaki.moviesapp.R
 import com.nilsonsasaki.moviesapp.databinding.ListItemBinding
 import com.nilsonsasaki.moviesapp.network.MoviesListItem
 import com.nilsonsasaki.moviesapp.ui.adapters.MoviesListAdapter.MoviesListViewHolder
@@ -19,7 +20,10 @@ private val onItemClicked: (MoviesListItem)-> Unit) :
 
         fun bind(moviesListItem: MoviesListItem) {
             binding.tvTitle.text = moviesListItem.title
-            binding.ivCover.load(moviesListItem.coverUrl.toUri())
+            binding.ivCover.load(moviesListItem.coverUrl.toUri()){
+                error(R.drawable.ic_broken_image)
+                placeholder(R.drawable.loading_animation)
+            }
             binding.tvRating.text = moviesListItem.rating.toString()
             binding.tvReleaseYear.text = moviesListItem.releaseDate
         }
