@@ -14,16 +14,13 @@ import com.nilsonsasaki.moviesapp.databinding.FragmentMoviesListBinding
 import com.nilsonsasaki.moviesapp.ui.adapters.MoviesListAdapter
 import com.nilsonsasaki.moviesapp.viewmodels.MovieTitleViewModel
 import com.nilsonsasaki.moviesapp.viewmodels.MoviesAppApiStatus
-import com.nilsonsasaki.moviesapp.viewmodels.MoviesAppScreen
 
 class MovieListFragment : Fragment() {
 
     private var _binding: FragmentMoviesListBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var recyclerView: RecyclerView
     lateinit var movieListStatus: MoviesAppApiStatus
-
     private var stopRetry: Boolean = false
     private val viewModel: MovieTitleViewModel by activityViewModels()
 
@@ -32,7 +29,6 @@ class MovieListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        viewModel.setAppScreen(MoviesAppScreen.LIST)
         _binding = FragmentMoviesListBinding.inflate(layoutInflater, container, false)
         return (binding.root)
     }
@@ -58,7 +54,7 @@ class MovieListFragment : Fragment() {
         }
         viewModel.stopRetrying.observe(this.viewLifecycleOwner) { stop ->
             stopRetry = stop
-            if(stopRetry){
+            if (stopRetry) {
                 val action = MovieListFragmentDirections.actionMoviesListFragmentToErrorFragment()
                 this.findNavController().navigate(action)
             }
@@ -77,6 +73,7 @@ class MovieListFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        viewModel.clearRetryCounter()
         _binding = null
     }
 }
