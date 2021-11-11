@@ -36,12 +36,11 @@
         android:id="@+id/errorFragment"
         android:name="com.nilsonsasaki.moviesapp.ui.ErrorFragment"
         android:label="fragment_error"
-        tools:layout="@layout/fragment_error" >
-        <action
-            android:id="@+id/action_errorFragment_to_movieDetailFragment"
-            app:destination="@id/movieDetailFragment" />
+        tools:layout="@layout/fragment_error">
         <action
             android:id="@+id/action_errorFragment_to_moviesListFragment"
-            app:destination="@id/moviesListFragment" />
+            app:destination="@id/moviesListFragment"
+            app:popUpTo="@id/moviesListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
