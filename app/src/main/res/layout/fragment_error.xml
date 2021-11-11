@@ -11,7 +11,7 @@
         android:id="@+id/tv_error_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="@dimen/error_text_size"
         android:gravity="center"
         android:text="@string/error_text"
         app:layout_constraintBottom_toTopOf="@id/bt_reconnect_button"
@@ -22,8 +22,8 @@
         android:id="@+id/bt_reconnect_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bt_try_again_text"
-        android:layout_marginBottom="16dp"
+        android:text="@string/bt_reconnect_text"
+        android:layout_marginBottom="@dimen/bt_margin_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
