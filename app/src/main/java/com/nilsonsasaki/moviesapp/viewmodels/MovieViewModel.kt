@@ -8,8 +8,6 @@ import kotlinx.coroutines.launch
 
 enum class MoviesAppApiStatus { LOADING, ERROR, DONE }
 
-enum class MoviesAppScreen { LIST, DETAILS }
-
 class MovieTitleViewModel : ViewModel() {
 
     private val _movieListStatus = MutableLiveData<MoviesAppApiStatus>()
@@ -21,9 +19,6 @@ class MovieTitleViewModel : ViewModel() {
     private val _moviesList = MutableLiveData<List<MoviesListItem>>()
     val moviesList: LiveData<List<MoviesListItem>> = _moviesList
 
-    private val _moviesDetailsList = MutableLiveData<List<MovieDetails>>()
-    val moviesDetailsList get() = _moviesDetailsList
-
     private var _movieDetails = MutableLiveData<MovieDetails>()
     val movieDetails get() = _movieDetails
 
@@ -32,11 +27,19 @@ class MovieTitleViewModel : ViewModel() {
 
     private var _retryCounter: Int = 0
 
-    private var _appScreen = MutableLiveData<MoviesAppScreen>()
-    val appScreen get() = _appScreen
-
     private var _movieId = MutableLiveData<Int>()
-    val movieId get() = _movieId
+    private val movieId get() = _movieId
+
+    private val _emptyMovieDetails = MovieDetails(
+        "",
+        listOf(),
+        0,
+        "",
+        "",
+        "",
+        0.0f,
+        "",
+    )
 
     init {
         getMoviesList()
@@ -47,36 +50,23 @@ class MovieTitleViewModel : ViewModel() {
         _stopRetrying.value = false
     }
 
-    fun clearMovieDetailsStatus() {
-        _movieDetailsStatus.value = MoviesAppApiStatus.LOADING
+    fun clearMovieListStatus() {
+        _movieListStatus.value = MoviesAppApiStatus.LOADING
     }
 
-    fun setAppScreen(screen: MoviesAppScreen) {
-        _appScreen.value = screen
+    fun clearMovieDetailsStatus() {
+        _movieDetailsStatus.value = MoviesAppApiStatus.LOADING
     }
 
     fun setMovieId(id: Int) {
         _movieId.value = id
     }
 
-    fun clearMovieId() {
-        _movieId.value = 0
-    }
-
     fun clearMovieDetails() {
-        _movieDetails.value = MovieDetails(
-            "",
-            listOf(),
-            0,
-            "Unable to Load",
-            "",
-            "",
-            0.0f,
-            "",
-        )
+        _movieDetails.value = _emptyMovieDetails
     }
 
-    private fun getMoviesList() {
+    fun getMoviesList() {
         viewModelScope.launch {
             _movieListStatus.value = MoviesAppApiStatus.LOADING
             try {
@@ -99,11 +89,11 @@ class MovieTitleViewModel : ViewModel() {
         }
     }
 
-    fun getMovieDetails(movieId: Int) {
+    fun getMovieDetails() {
         viewModelScope.launch {
             _movieDetailsStatus.value = MoviesAppApiStatus.LOADING
             try {
-                _movieDetails.value = MoviesApi.retrofitService.getMovieDetails(movieId)
+                _movieDetails.value = MoviesApi.retrofitService.getMovieDetails(movieId.value!!)
                 _movieDetailsStatus.value = MoviesAppApiStatus.DONE
             } catch (e: Exception) {
                 _movieDetailsStatus.value = MoviesAppApiStatus.ERROR
@@ -112,14 +102,14 @@ class MovieTitleViewModel : ViewModel() {
         }
     }
 
-    private val _emptyMovieDetails = MovieDetails(
-        "",
-        listOf(),
-        0,
-        "",
-        "",
-        "",
-        0.0f,
-        "",
-    )
+    fun retryGetMovieDetails() {
+        if (_retryCounter < 3) {
+            _movieDetailsStatus.value = MoviesAppApiStatus.LOADING
+            getMovieDetails()
+            _retryCounter++
+        } else {
+            _stopRetrying.value = true
+        }
+    }
+
 }
