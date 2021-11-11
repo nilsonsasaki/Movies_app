@@ -2,4 +2,6 @@
     <string name="app_name">MoviesApp</string>
     <string name="backdrop_content_description">Movie picture</string>
     <string name="title_cover_description">Title Cover</string>
+    <string name="error_text">Error\n\ncan\'t load data</string>
+    <string name="bt_try_again_text">Try Again</string>
 </resources>
