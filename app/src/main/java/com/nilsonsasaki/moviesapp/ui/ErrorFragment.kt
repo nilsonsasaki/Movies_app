@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.nilsonsasaki.moviesapp.databinding.FragmentErrorBinding
 import com.nilsonsasaki.moviesapp.viewmodels.MovieTitleViewModel
 
@@ -19,11 +20,20 @@ class ErrorFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         _binding = FragmentErrorBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btReconnectButton.setOnClickListener {
+            viewModel.clearRetryCounter()
+            viewModel.clearMovieListStatus()
+            viewModel.getMoviesList()
+            val action = ErrorFragmentDirections.actionErrorFragmentToMoviesListFragment()
+            this.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroy() {
