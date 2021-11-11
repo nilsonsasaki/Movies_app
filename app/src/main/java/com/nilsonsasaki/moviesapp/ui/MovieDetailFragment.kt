@@ -55,7 +55,7 @@ class MovieDetailFragment : Fragment() {
                     binding.loadedDetailFragment.visibility = ScrollView.VISIBLE
                 }
                 else -> {
-                    viewModel.retryGetMoviesDetails()
+                    viewModel.retryGetMovieDetails()
                 }
             }
         }
