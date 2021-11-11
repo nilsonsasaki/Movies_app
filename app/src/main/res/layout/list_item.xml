@@ -12,7 +12,7 @@
         android:layout_height="@dimen/list_cover_height"
         android:adjustViewBounds="true"
         android:contentDescription="@string/title_cover_description"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/backgrounds/scenic" />
